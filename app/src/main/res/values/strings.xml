@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Recipes App</string>
+    <string name="splash_blob">splash_blob</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="or">Or</string>
+    <string name="signup">SignUp</string>
+    <string name="if_you_don_t_have_an_account_click_here">If you don\'t have an account, click here</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="did_you_have_an_account_click_here">Did you have an account? click here</string>
+    <string name="name">Name</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="cook_like_a_pro_with_nour_expertly_crafted_recipes">Cook like a pro with\nour expertly crafted recipes</string>
+    <string name="your_favorites_meal_here">Your Favorites Meal Here</string>
+    <string name="search_your_favourite_recipe">Search your favourite Recipe</string>
+    <string name="profile">Profile</string>
+    <string name="categories">Categories</string>
+    <string name="see_more">See More</string>
+    <string name="take_your_taste_buds_non_a_flavor_journey_with_us">Take your taste buds\non a flavor journey with us</string>
+    <string name="developer_email">info@hashmac.com</string>
+    <string name="user_name">User Name</string>
+    <string name="share_your_nmasterpiece_with_the_world">Share your magic\nmasterpiece with the World</string>
+    <string name="satisfy_your_cravings_nwith_just_a_tap_recipe_app">Satisfy your cravings\nwith just a tap - Recipe App</string>
+    <string name="share_app">Share App with Friends and Family</string>
+    <string name="rate_app">Rate us on Play Store</string>
+    <string name="view_more_apps">View More Apps developed by us</string>
+    <string name="send_feedback">Share your feedback to improve our app</string>
+    <string name="privacy_policy">Visit our Privacy Policy</string>
+    <string name="developer_name">HashMac</string>
+    <string name="developer_id">the_hashmac</string>
+</resources>
