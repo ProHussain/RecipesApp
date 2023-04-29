@@ -40,6 +40,9 @@ public class SettingActivity extends AppCompatActivity {
     }
 
     private void signOut() {
+        if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+            return;
+        }
         new AlertDialog.Builder(this)
                 .setTitle("Sign Out")
                 .setMessage("Are you sure you want to sign out?")

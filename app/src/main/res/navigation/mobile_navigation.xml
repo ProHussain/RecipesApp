@@ -22,4 +22,9 @@
         android:name="com.hashmac.recipesapp.fragment.ProfileFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/navigation_favorite"
+        android:name="com.hashmac.recipesapp.fragment.FavouritesFragment"
+        android:label="fragment_favourites"
+        tools:layout="@layout/fragment_favourites" />
 </navigation>

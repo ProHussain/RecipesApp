@@ -3,7 +3,9 @@ package com.hashmac.recipesapp.room;
 import android.app.Application;
 
 import com.hashmac.recipesapp.models.FavouriteRecipe;
+import java.util.Collections;
 
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
@@ -45,6 +47,17 @@ public class RecipeRepository {
             e.printStackTrace();
             Thread.currentThread().interrupt();
             return false;
+        }
+    }
+
+    public List<FavouriteRecipe> getAllFavourites() {
+        Future<List<FavouriteRecipe>> future = RecipeDatabase.databaseWriteExecutor.submit(() -> recipeDao.getAllFavourites());
+        try {
+            return future.get(); // wait for the result
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+            Thread.currentThread().interrupt();
+            return Collections.emptyList();
         }
     }
 }

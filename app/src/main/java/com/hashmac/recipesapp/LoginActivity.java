@@ -47,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.btnLogin.setOnClickListener(view -> login());
+        binding.tvGuest.setOnClickListener(view -> startActivity(new Intent(this, MainActivity.class)));
         binding.tvSignup.setOnClickListener(view -> startActivity(new Intent(this, SingUpActivity.class))); // navigate to signup activity
     }
 

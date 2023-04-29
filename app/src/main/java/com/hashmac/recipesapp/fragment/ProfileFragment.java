@@ -1,5 +1,7 @@
 package com.hashmac.recipesapp.fragment;
 
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -30,6 +32,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.hashmac.recipesapp.R;
+import com.hashmac.recipesapp.SettingActivity;
 import com.hashmac.recipesapp.adapters.RecipeAdapter;
 import com.hashmac.recipesapp.databinding.FragmentProfileBinding;
 import com.hashmac.recipesapp.models.Recipe;
@@ -91,9 +94,16 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        loadProfile();
-        loadUserRecipes();
-        init();
+        if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+            new AlertDialog.Builder(getContext())
+                    .setTitle("Login Required")
+                    .setMessage("You need to login to view your profile")
+                    .show();
+        } else {
+            loadProfile();
+            loadUserRecipes();
+            init();
+        }
     }
 
     private void init() {
@@ -115,6 +125,8 @@ public class ProfileFragment extends Fragment {
                     binding.imgCover.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     uploadCoverImage(r.getBitmap());
                 }).setOnPickCancel(() -> Toast.makeText(requireContext(), "Cancelled", Toast.LENGTH_SHORT).show()));
+
+        binding.btnSetting.setOnClickListener(view1 -> startActivity(new Intent(requireContext(), SettingActivity.class)));
     }
 
     private void uploadCoverImage(Bitmap bitmap) {

@@ -22,4 +22,8 @@ public interface RecipeDao {
 
     @Query("SELECT * FROM favourite_recipes WHERE recipeId = :favouriteName")
     FavouriteRecipe getFavourite(String favouriteName);
+
+    @Query("SELECT * FROM favourite_recipes")
+    List<FavouriteRecipe> getAllFavourites();
+
 }

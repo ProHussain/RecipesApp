@@ -132,4 +132,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_guest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_as_guest"
+        android:textColor="@color/primary"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_login"
+        app:layout_constraintStart_toStartOf="@+id/et_password_container"
+        app:layout_constraintTop_toTopOf="@+id/btn_login" />
 </androidx.constraintlayout.widget.ConstraintLayout>
