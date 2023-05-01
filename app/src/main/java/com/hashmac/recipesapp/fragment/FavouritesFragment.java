@@ -70,7 +70,7 @@ public class FavouritesFragment extends Fragment {
             binding.rvFavourites.setAdapter(new RecipeAdapter());
             List<Recipe> recipes = new ArrayList<>();
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Recipes");
-            reference.addValueEventListener(new ValueEventListener() {
+            reference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if (snapshot.hasChildren()) {

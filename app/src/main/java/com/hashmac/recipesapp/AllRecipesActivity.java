@@ -45,6 +45,7 @@ import java.util.List;
 public class AllRecipesActivity extends AppCompatActivity {
     ActivityAllRecipesBinding binding;
     DatabaseReference reference;
+    String type;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +54,12 @@ public class AllRecipesActivity extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference("Recipes");
         binding.rvRecipes.setLayoutManager(new GridLayoutManager(this,2));
         binding.rvRecipes.setAdapter(new RecipeAdapter());
-        String type = getIntent().getStringExtra("type");
+        type = getIntent().getStringExtra("type");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         if (type.equalsIgnoreCase("category")) {
             filterByCategory();
         } else if (type.equalsIgnoreCase("search")) {
@@ -66,7 +72,7 @@ public class AllRecipesActivity extends AppCompatActivity {
     private void loadByRecipes() {
         // Search Recipes by Name
         String query = getIntent().getStringExtra("query");
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<Recipe> recipes = new ArrayList<>();
@@ -90,7 +96,7 @@ public class AllRecipesActivity extends AppCompatActivity {
 
     private void loadAllRecipes() {
         // Load All Recipes
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<Recipe> recipes = new ArrayList<>();
@@ -115,7 +121,7 @@ public class AllRecipesActivity extends AppCompatActivity {
     private void filterByCategory() {
         // Filter Recipes by Category
         String category = getIntent().getStringExtra("category");
-        reference.orderByChild("category").equalTo(category).addValueEventListener(new ValueEventListener() {
+        reference.orderByChild("category").equalTo(category).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<Recipe> recipes = new ArrayList<>();

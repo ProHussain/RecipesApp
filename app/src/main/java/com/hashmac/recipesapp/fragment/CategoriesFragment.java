@@ -70,7 +70,7 @@ public class CategoriesFragment extends Fragment {
     private void loadCategories() {
         binding.rvCategories.setAdapter(new CategoryAdapter());
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Categories");
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<Category> categories = new ArrayList<>();

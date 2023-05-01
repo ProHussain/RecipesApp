@@ -120,9 +120,14 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        loadRecipes();
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        loadRecipes();
         binding.etSearch.setOnEditorActionListener((textView, i, keyEvent) -> {
             if (i == EditorInfo.IME_ACTION_SEARCH) {
                 performSearch();
@@ -158,7 +163,7 @@ public class HomeFragment extends Fragment {
         binding.rvPopulars.setAdapter(new HorizontalRecipeAdapter());
         binding.rvFavouriteMeal.setAdapter(new HorizontalRecipeAdapter());
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Recipes");
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<Recipe> recipes = new ArrayList<>();

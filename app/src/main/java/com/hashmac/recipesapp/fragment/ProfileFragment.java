@@ -101,9 +101,14 @@ public class ProfileFragment extends Fragment {
                     .show();
         } else {
             loadProfile();
-            loadUserRecipes();
             init();
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadUserRecipes();
     }
 
     private void init() {
@@ -189,7 +194,7 @@ public class ProfileFragment extends Fragment {
         binding.rvProfile.setLayoutManager(new GridLayoutManager(getContext(), 2));
         binding.rvProfile.setAdapter(new RecipeAdapter());
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        reference.child("Recipes").orderByChild("authorId").equalTo(FirebaseAuth.getInstance().getUid()).addValueEventListener(new ValueEventListener() {
+        reference.child("Recipes").orderByChild("authorId").equalTo(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<Recipe> recipes = new ArrayList<>();

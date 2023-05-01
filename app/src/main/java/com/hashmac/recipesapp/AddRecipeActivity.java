@@ -65,6 +65,7 @@ public class AddRecipeActivity extends AppCompatActivity {
     private boolean isImageSelected = false;
     private ProgressDialog dialog;
     boolean isEdit;
+    String recipeId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +92,7 @@ public class AddRecipeActivity extends AppCompatActivity {
 
     private void editRecipe() {
         Recipe recipe = (Recipe) getIntent().getSerializableExtra("recipe");
+        recipeId = recipe.getId();
         isImageSelected = true;
         binding.etRecipeName.setText(recipe.getName());
         binding.etDescription.setText(recipe.getDescription());
@@ -218,6 +220,7 @@ public class AddRecipeActivity extends AppCompatActivity {
         // 6. We will save the recipe object in the firebase database.
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Recipes");
         if (isEdit) {
+            recipe.setId(recipeId);
             reference.child(recipe.getId()).setValue(recipe).addOnCompleteListener(task -> {
                 dialog.dismiss();
                 if (task.isSuccessful()) {
