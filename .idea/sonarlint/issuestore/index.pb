@@ -58,8 +58,6 @@ s
 Capp/src/main/java/com/hashmac/recipesapp/room/RecipeRepository.java,d\0\d00f188591fcfdb5a87ed50cdf26a0782acdd97f
 m
 =app/src/main/java/com/hashmac/recipesapp/SettingActivity.java,5\4\54dbfd8bc4146ed53e39de301a8cb9d706767de3
-m
-=app/src/main/java/com/hashmac/recipesapp/models/Category.java,7\e\7e85322e843aea81e443c07af657f413d410f0ee
 k
 ;app/src/main/java/com/hashmac/recipesapp/models/Recipe.java,f\6\f6bd2d389e19f389413240e533ced609369ed041
 y
@@ -70,9 +68,5 @@ p
 @app/src/main/java/com/hashmac/recipesapp/AllRecipesActivity.java,2\d\2da7e66244f2b46d91a5c683e4ad77be75eb9855
 s
 Capp/src/main/java/com/hashmac/recipesapp/RecipeDetailsActivity.java,9\3\938c2649637fbda701adb475a073d992e0df111e
-y
-Iapp/src/main/java/com/hashmac/recipesapp/fragment/CategoriesFragment.java,e\7\e7c369a534dda8df094d5ffa1db42c9514524f3c
 o
 ?app/src/main/java/com/hashmac/recipesapp/AddRecipeActivity.java,e\9\e9cd69dd138a0670d2992d596a2bed80a18fac55
-s
-Capp/src/main/java/com/hashmac/recipesapp/fragment/HomeFragment.java,b\b\bb7d4cbbb3da086fb2427cba69ec4d16b5a952d5
