@@ -38,7 +38,7 @@
     <ol>
         <li>Clone the repository:</li>
     </ol>
-    <pre><code>git clone https://github.com/ProHussain/recipe-app.git</code></pre>
+    <pre><code>git clone https://github.com/ProHussain/RecipesApp.git</code></pre>
     <ol start="2">
         <li>Open the project in Android Studio.</li>
         <li>Connect your app to Firebase by following the Firebase setup instructions in the project.</li>
